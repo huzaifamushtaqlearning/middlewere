@@ -18,6 +18,7 @@ app.use("/data",(req, res, next) => {
 });
 app.get('/data', (req, res) => {
   res.send('🔐 Protected Data Accessed!');
+  //throw new Error('Something went wrong!'); used also for error handling
 });
 
 // ✅ Sirf yahan use kiya
