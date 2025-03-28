@@ -7,6 +7,19 @@ function checkAdmin(req, res, next) {
   else res.send('❌ Access Denied');
 }
 
+app.use("/data",(req, res, next) => {
+  let {token} = req.query;
+  if (token === '123') {
+    console.log('Token is valid!');
+    next();
+  } else {
+    res.send('❌ Invalid Token!');
+  }
+});
+app.get('/data', (req, res) => {
+  res.send('🔐 Protected Data Accessed!');
+});
+
 // ✅ Sirf yahan use kiya
 app.get('/admin', checkAdmin, (req, res) => {
   res.send('👑 Admin Access Granted');
